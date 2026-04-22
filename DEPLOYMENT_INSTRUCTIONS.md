@@ -8,7 +8,7 @@ This guide covers deploying both the frontend and backend to production.
 
 - GitHub account
 - Render account (render.com)
-- Vercel account (vercel.com) for frontend, or any other hosting
+- Netlify account (netlify.com) for frontend, or any other hosting
 - MongoDB Atlas account (free)
 - Git installed locally
 
