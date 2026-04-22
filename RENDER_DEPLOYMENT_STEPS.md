@@ -89,7 +89,7 @@ CLIENT_URL=https://coinbase-clone.vercel.app
 ```
 
 **⚠️ Important Notes:**
-- Replace `CLIENT_URL` with your actual Vercel frontend URL (we'll get this after deploying frontend)
+- Replace `CLIENT_URL` with your actual netlify frontend URL (we'll get this after deploying frontend)
 - For now, you can use a placeholder URL
 - Copy the `MONGODB_URI` exactly as provided (includes your credentials)
 - Change the `JWT_SECRET` to something unique and secure
@@ -175,42 +175,42 @@ This creates a `dist` folder with optimized files ready for deployment.
 
 ---
 
-## Step 9: Deploy Frontend to Vercel
+## Step 9: Deploy Frontend to Netlify
 
-1. Go to [vercel.com](https://vercel.com)
-2. Click **"New Project"**
-3. Select your GitHub repository
-4. Configure:
+1. Go to [netlify.com](https://netlify.com)
+2. Click **"Add New Site"** > **"Import an Existing Project"**
+3. Select your GitHub account and choose the repository
+4. Select your repository: **"coinbase-clone"**
+5. Configure build settings:
    ```
-   Framework: Vite
-   Root Directory: ./client
+   Base Directory: client
    Build Command: npm run build
-   Output Directory: dist
+   Publish Directory: dist
    ```
-5. Add Environment Variables:
+6. Add Environment Variables:
    ```
    VITE_API_URL=https://coinbase-clone-api.onrender.com/api
    ```
-6. Click **"Deploy"**
-7. Wait for deployment (2-3 minutes)
-8. Get your Vercel URL (e.g., `https://coinbase-clone.vercel.app`)
+7. Click **"Deploy Site"**
+8. Wait for deployment (2-3 minutes)
+9. Get your Netlify URL (e.g., `https://agudu-coinbase-clone.netlify.app/`)
 
 ---
 
 ## Step 10: Update Backend CORS (Important!)
 
-Your Vercel frontend URL is now live! Update the backend to allow requests from it.
+Your netlify frontend URL is now live! Update the backend to allow requests from it.
 
 1. Go back to [render.com dashboard](https://dashboard.render.com/)
 2. Select your **"coinbase-clone-api"** service
 3. Go to **"Environment"** tab
 4. Update `CLIENT_URL` variable:
    ```
-   CLIENT_URL=https://YOUR_VERCEL_URL.vercel.app
+   CLIENT_URL=https://YOUR_NETLIFY_URL.netlify.app
    ```
    **Example:**
    ```
-   CLIENT_URL=https://coinbase-clone.vercel.app
+   CLIENT_URL=https://agudu-coinbase-clone.netlify.app
    ```
 5. Click **"Save Changes"**
 6. Render will auto-redeploy (takes 1-2 minutes)
@@ -317,7 +317,7 @@ https://coinbase-clone.vercel.app
 | Platform | Dashboard | Logs | Settings |
 |----------|-----------|------|----------|
 | **Render** | [dashboard.render.com](https://dashboard.render.com) | Click service > Logs | Click service > Settings |
-| **Vercel** | [vercel.com/dashboard](https://vercel.com/dashboard) | Click project > Logs | Click project > Settings |
+| **Vercel** | [netlify.com/dashboard](https://vercel.com/dashboard) | Click project > Logs | Click project > Settings |
 | **MongoDB** | [mongodb.com/cloud/atlas](https://www.mongodb.com/cloud/atlas) | Logs in Atlas UI | Project Settings |
 
 ---
