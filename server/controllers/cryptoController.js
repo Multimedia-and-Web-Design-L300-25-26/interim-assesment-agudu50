@@ -1,4 +1,5 @@
 const Crypto = require('../models/Crypto');
+const { validateCryptoSymbol, validatePrice, validateUrl } = require('../utils/validation');
 
 // Get all cryptocurrencies
 exports.getAllCryptos = async (req, res) => {
@@ -68,6 +69,27 @@ exports.addCrypto = async (req, res) => {
       return res.status(400).json({
         success: false,
         message: 'Please provide name, symbol, price, and image',
+      });
+    }
+
+    if (!validateCryptoSymbol(symbol)) {
+      return res.status(400).json({
+        success: false,
+        message: 'Symbol must be 1-10 alphanumeric characters',
+      });
+    }
+
+    if (!validatePrice(price)) {
+      return res.status(400).json({
+        success: false,
+        message: 'Price must be a non-negative number',
+      });
+    }
+
+    if (!validateUrl(image)) {
+      return res.status(400).json({
+        success: false,
+        message: 'Image must be a valid URL',
       });
     }
 

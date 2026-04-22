@@ -18,6 +18,7 @@ app.use(express.json());
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/crypto', require('./routes/cryptoRoutes'));
+app.use('/api/seed', require('./routes/seedRoutes'));
 
 // Basic health check endpoint
 app.get('/api/health', (req, res) => {
